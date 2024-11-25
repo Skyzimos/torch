@@ -22,7 +22,7 @@ window.onkeydown = function(event) {
 		Input1.select();
 	} else if (event.key == 'Escape') {
 		sessionStorage.clear();
-		window.location.href = '/loading/';
+		window.location.href = '/torch/loading/';
 	}
 };
 
@@ -57,7 +57,7 @@ Form.onsubmit = function(e) {
 			Found = true
 			sessionStorage.setItem('ticket_showtime_verification', 'ticket_' + Value1 + Value2);
 
-			window.location.href = '/loading/';
+			window.location.href = '/torch/loading/';
 
 			return false;
 		}

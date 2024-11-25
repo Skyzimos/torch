@@ -59,7 +59,7 @@ Form.onsubmit = function(e) {
 				if (parseFloat(Item.split('.')[1].replace(':', '')) >= 530) {
 					sessionStorage.setItem('ticket_verification', 'Ticket #' + Value1 + Value2 + '@' + Item_Value);
 
-					window.location.href = '/loading/';
+					window.location.href = '/torch/loading/';
 				} else {
 					Input1.select()
 					alert('Your show time is already over. Sorry!');
@@ -71,7 +71,7 @@ Form.onsubmit = function(e) {
 				} else {
 					sessionStorage.setItem('ticket_verification', 'Ticket #' + Value1 + Value2 + '@' + Item_Value);
 
-					window.location.href = '/loading/';
+					window.location.href = '/torch/loading/';
 				}
 			}
 		}

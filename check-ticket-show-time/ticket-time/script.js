@@ -18,7 +18,7 @@ setInterval(() => {
 	if (CountdownTime == 0) {
 		sessionStorage.removeItem('ticket_showtime_verification');
 		sessionStorage.setItem('ticket_showtime_verification_complete', 't');
-		window.location.href = '/loading/';
+		window.location.href = '/torch/loading/';
 
 		return;
 	}

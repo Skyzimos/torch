@@ -1,7 +1,7 @@
 let SSItems = { ... sessionStorage };
 console.log(Object.keys(SSItems).length)
 if (SSItems == {} || SSItems.length == 0 || Object.keys(SSItems).length == 0) {
-	window.location.href = '/menu/'
+	window.location.href = '/torch/menu/'
 }
 
 let Input1 = document.getElementById('otp-input1');
@@ -129,7 +129,7 @@ document.getElementById('finalize').onclick = function() {
 	if (Submissions == (Elements.length - 1)) {
 		sessionStorage.clear()
 		sessionStorage.setItem('processing', 't')
-		window.location.href = '/loading';
+		window.location.href = '/torch/loading';
 	} else {
 		alert(`You haven't assigned all your seats to a ticket.\n\nFollow these steps: For each seat, please select it on the side, and a pop up will appear. Then, grab a ticket, and input the last 2 digits into the popup.`);
 	}

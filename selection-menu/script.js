@@ -48,5 +48,5 @@ document.getElementById('continue').onclick = function() {
 	sessionStorage.setItem('number_of_seats', NumberOfSeats);
 	sessionStorage.setItem('seats', JSON.stringify(Selected));
 	sessionStorage.setItem('finalize', 't');
-	window.location.href = '/loading/'
+	window.location.href = '/torch/loading/'
 }

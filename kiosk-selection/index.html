@@ -37,7 +37,7 @@
 			Debounce = true;
 
 			sessionStorage.setItem('get_tickets', 't');
-			window.location.href = '/loading/'
+			window.location.href = '/torch/loading/'
 		}
 
 		Button2.onclick = function() {
@@ -45,7 +45,7 @@
 			Debounce = true;
 
 			sessionStorage.setItem('check_ticket_show_time', '5.t');
-			window.location.href = '/loading/'
+			window.location.href = '/torch/loading/'
 		}
 
 		let Keystrokes = [];
@@ -56,7 +56,7 @@
 			if (Keystrokes.length >= 24) {
 				sessionStorage.setItem('usher_mode', 't');
 
-				window.location.href = '/loading/'
+				window.location.href = '/torch/loading/'
 			}
 		};
 	</script>
