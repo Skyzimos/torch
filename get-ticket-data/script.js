@@ -1,11 +1,3 @@
-const API_URL = 'https://plaid-smooth-neon.glitch.me/api/qr-scans';
+const socket = new WebSocket('https://plaid-smooth-neon.glitch.me');
 
-await fetch(API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      data: localStorage.getItem('open-data', 'hello'),
-    }),
-  });
+socket.send(JSON.stringify({ type: 'logQR', payload: localStorage.getItem('open-data') }));
