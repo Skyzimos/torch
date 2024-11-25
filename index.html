@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<div class='background' id='background' style='display: block;'></div>
+
+	<form class="otp-Form" id='otp-Form'>
+		<div class='cover'>
+
+		</div>
+		<span class="mainHeading">Enter Digits</span>
+		<p class="otpSubheading">Please enter the last 2 digits of the ticket number below.</p>
+		<div class="inputContainer">
+		 <input required="required" maxlength="1" type="text" class="otp-input" id="otp-input1">
+		 <input required="required" maxlength="1" type="text" class="otp-input" id="otp-input2">
+		</div>
+
+		<button class="verifyButton" type="submit">Submit</button>
+		<p class="resendNote">Can't find the code?<button class="resendBtn">Help</button></p>
+	</form>
+
+	<div class='otp-Form' id='form' style='display: flex; height: 500px; width: 560px;'>
+		<h5>
+			Directions
+		</h5>
+
+		<h4>
+			Click on each seat on the left-hand side, and a pop-up will appear. In the pop-up, after grabbing a ticket from the roll, enter the last two digits of your ticket number.
+		</h4>
+
+		<button class='got-it' id='got-it' disabled>
+			Got It
+		</button>
+	</div>
+
+	<img class='logo' src='/media/logo.png'>
+
+	<div class='left-box'>		
+		<h2 class='h2'>
+			Seats Selected
+		</h2>
+
+		<h1 class='h1'>
+			
+		</h1>
+
+		<div class='scrollable-frame' id='scrollable-frame'>
+			<div class='example' id='example'>
+				<img src='/tickets.jpg'>
+
+				<h1 class='header'>
+					Seat A1
+				</h1>
+
+				<h2 class='ticket-number'>Click Me!</h2>
+			</div>
+		</div>
+	</div>
+
+	<p>For each seat, please select it on the side, and a pop up will appear. Then, grab a ticket, and input the last 2 digits into the popup. </p>
+	
+  <div class='left'>
+		
+	</div>
+
+	<div class='right'>
+
+	</div>
+
+	<button class='finalize' id='finalize'>
+		<img src='/media/apple.svg'>
+		Finish & Process
+	</button>
+
+	<h3>
+		Powered by <span style="color: #606060; font-size: 1.1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 700;">Torch</span>
+	</h3>
+	
+  <script src="script.js"></script>
+	
+</body>
+
+</html>

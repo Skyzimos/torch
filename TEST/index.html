@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Enchanted Gobbler</title>
+    <style>
+        /* Overall Page Styling */
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+            color: #5c3b00;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Magical Background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/MNOUfq5.png') repeat; /* Add sparkle/star pattern */
+            opacity: 0.2;
+            z-index: -1;
+            animation: twinkle 10s infinite;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .mascot {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            animation: bounce 3s infinite;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff8c00;
+            text-shadow: 2px 2px #ffd700;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #6b4226;
+            text-shadow: 1px 1px #fff8e1;
+            margin-bottom: 30px;
+        }
+
+        /* Input Box */
+        .input-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .input-box input {
+            padding: 15px;
+            font-size: 1.2rem;
+            border: 3px solid #ff8c00;
+            border-radius: 10px;
+            outline: none;
+            width: 200px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .input-box input:focus {
+            box-shadow: 0 0 10px #ffaf40;
+        }
+
+        .input-box button {
+            background-color: #ff8c00;
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .input-box button:hover {
+            background-color: #ffaf40;
+            transform: scale(1.1);
+        }
+
+        /* Clue Box */
+        .clue-box {
+            background-color: #fff9e6;
+            border: 3px dashed #ff8c00;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            width: 80%;
+            max-width: 500px;
+            display: none;
+            animation: clue-glow 1.5s infinite;
+        }
+
+        /* Magical Celebration */
+        .celebration {
+            display: none;
+            text-align: center;
+            margin-top: 40px;
+            animation: fade-in 2s forwards;
+        }
+
+        .celebration .sparkle {
+            font-size: 2rem;
+            color: #ff5722;
+            animation: sparkle 1s infinite;
+        }
+
+        .celebration .confetti {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: #ff8c00;
+            border-radius: 50%;
+            animation: confetti-fall 3s infinite;
+        }
+
+        /* Keyframes for Animations */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes clue-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px #ffaf40;
+            }
+            50% {
+                box-shadow: 0 0 20px #ffaf40;
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(200px);
+                opacity: 0;
+            }
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            margin-top: 30px;
+            width: 80%;
+            max-width: 400px;
+            height: 20px;
+            background-color: #ffecd2;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background-color: #ff8c00;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="pngtree-cute-cartoon-turkey-clipart-for-thanksgiving-designs-png-image_13783486.png" alt="Mascot" class="mascot">
+        <div>
+            <h1>The Enchanted Gobbler</h1>
+            <h2>Find the magical feathers to save Thanksgiving!</h2>
+        </div>
+    </div>
+
+    <div class="input-box">
+        <input type="text" id="codeInput" placeholder="Enter feather code">
+        <button id="submitCode">Submit</button>
+    </div>
+
+    <div class="clue-box" id="clueBox">
+        <p id="clueText"><strong>Clue:</strong> The first feather is hiding where the family’s favorite dessert is kept!</p>
+    </div>
+
+    <div class="progress-bar">
+        <span id="progress"></span>
+    </div>
+
+    <div class="celebration" id="celebration">
+        <p class="sparkle">✨ Hooray! You've saved the Gobbler's magic! ✨</p>
+    </div>
+
+    <script>
+        // Clues and Codes
+        const clues = [
+            { code: "PIE", text: "The first feather is hiding where the family’s favorite dessert is kept!" },
+            { code: "FIRE", text: "The second feather is near something that keeps us warm during Thanksgiving." },
+            { code: "TABLE", text: "The third feather is where we gather to share stories of gratitude." },
+            { code: "FEAST", text: "The final feather is waiting where the Thanksgiving feast is served." }
+        ];
+
+        let currentClueIndex = 0;
+        const totalClues = clues.length;
+
+        // DOM Elements
+        const codeInput = document.getElementById("codeInput");
+        const submitButton = document.getElementById("submitCode");
+        const clueBox = document.getElementById("clueBox");
+        const clueText = document.getElementById("clueText");
+        const celebration = document.getElementById("celebration");
+        const progressBar = document.getElementById("progress");
+
+        // Update Progress Bar
+        function updateProgress() {
+            const progressWidth = (currentClueIndex / totalClues) * 100;
+            progressBar.style.width = `${progressWidth}%`;
+        }
+
+        // Code Submission Logic
+        submitButton.addEventListener("click", () => {
+            const enteredCode = codeInput.value.trim().toUpperCase();
+
+            if (enteredCode === clues[currentClueIndex].code) {
+                if (currentClueIndex < totalClues - 1) {
+                    currentClueIndex++;
+                    clueText.textContent = clues[currentClueIndex].text;
+                    clueBox.style.display = "block";
+                    updateProgress();
+                    alert("Great job! You're getting closer!");
+                } else {
+                    clueBox.style.display = "none";
+                    celebration.style.display = "block";
+                    alert("Congratulations, you've saved Thanksgiving!");
+                }
+                codeInput.value = ""; // Clear input
+            } else {
+                alert("Hmm... that doesn't seem right. Try again!");
+            }
+        });
+    </script>
+</body>
+</html>

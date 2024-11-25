@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link href="/seat-verification/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<div class='background' id='background'></div>
+
+	<form class="otp-Form" id='otp-Form'>
+		<div class='cover'>
+
+		</div>
+		<span class="mainHeading">Enter Digits</span>
+		<p class="otpSubheading">Please enter the last 2 digits of the ticket number below.</p>
+		<div class="inputContainer">
+		 <input required="required" maxlength="1" type="text" class="otp-input" id="otp-input1">
+		 <input required="required" maxlength="1" type="text" class="otp-input" id="otp-input2">
+		</div>
+
+		<button class="verifyButton" type="submit">Submit</button>
+		<p class="resendNote">Can't find the code?<button class="resendBtn">Help</button></p>
+	</form>
+	
+	<script src='/seat-verification/script.js'></script>
+
+</body>
+
+</html>

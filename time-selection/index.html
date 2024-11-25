@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link href="/time-selection/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<img class='logo' src='/media/logo.png'>
+
+	<h1>
+		Select a Time
+	</h1>
+
+	<container>
+		<button id='button1'>
+			5:00
+
+			<br>
+			<span style='font-size: 1em;'>
+				Show
+			</span>
+		</button>
+
+		<button id='button2'>
+			5:30
+
+			<br>
+			<span style='font-size: 1em;'>
+				Show
+			</span>
+		</button>
+	</container>
+
+	<h3>
+		Powered by <span style="color: #606060; font-size: 1.1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 700;">Torch</span>
+	</h3>
+
+	<script>
+		let Button1 = document.getElementById('button1');
+		let Button2 = document.getElementById('button2');
+		let Debounce = false;
+		
+		Button1.onclick = function() {
+			if (Debounce) return;
+			Debounce = true;
+
+			sessionStorage.setItem('time', '5.00_time');
+			window.location.href = '/loading/'
+		}
+
+		Button2.onclick = function() {
+			if (Debounce) return;
+			Debounce = true;
+
+			sessionStorage.setItem('time', '5.30_time');
+			window.location.href = '/loading/'
+		}
+	</script>
+
+</body>
+
+</html>
