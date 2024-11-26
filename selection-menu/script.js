@@ -54,6 +54,7 @@ for (var Element of Elements) {
 }
 
 document.getElementById('continue').onclick = function () {
+	document.querySelector('.overlay').style.display = 'block';
 	let NumberOfSeats = Selected.length;
 	if (NumberOfSeats == 0) {
 		alert('Please select one or more seats.');
