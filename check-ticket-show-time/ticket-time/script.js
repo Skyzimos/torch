@@ -18,6 +18,11 @@ function getPersonAndSeats(ticketNumber) {
 	return null;
 }
 
+document.getElementById('continue').addEventListener('click', () => {
+	sessionStorage.setItem('check_ticket_show_time', 't');
+	location.href = '/torch/loading/';
+})
+
 let ticketNumber = sessionStorage.getItem('ticketNUMBERHOST');
 let result = getPersonAndSeats(ticketNumber);
 
