@@ -54,12 +54,13 @@ for (var Element of Elements) {
 }
 
 document.getElementById('continue').onclick = function () {
-	document.querySelector('.overlay').style.display = 'block';
 	let NumberOfSeats = Selected.length;
 	if (NumberOfSeats == 0) {
 		alert('Please select one or more seats.');
 		return;
 	}
+
+	document.querySelector('.overlay').style.display = 'block';
 
 	// Assuming the ticket numbers are assigned sequentially or in some other way
 
