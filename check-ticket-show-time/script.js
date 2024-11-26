@@ -6,7 +6,36 @@ socket.addEventListener('open', () => {
 
 	socket.addEventListener('message', (event) => {
 		const data = JSON.parse(event.data);
-		sessionStorage.setItem('ticketNUMBERHOST', data.payload)
+
+		let masterTickets = JSON.parse(localStorage.getItem('masterTickets'));
+
+		function getPersonAndSeats(ticketNumber) {
+			// Iterate through the masterTickets object
+			for (let personName in masterTickets) {
+				let ticketNumbers = masterTickets[personName].ticketNumbers;
+
+				// Check if the ticket number exists in the person's ticketNumbers array
+				if (ticketNumbers.includes(ticketNumber)) {
+					// Return the person's name and their seat numbers
+					return {
+						name: personName,
+						seats: masterTickets[personName].seats
+					};
+				}
+			}
+
+			return null;
+		}
+
+		let ticketNumber = data.payload;
+		let result = getPersonAndSeats(ticketNumber);
+
+		if (result) {
+			sessionStorage.setItem('ticketNUMBERHOST', ticketNumber);
+			location.href = '/torch/check-ticket-show-time/ticket-time/'
+		} else {
+			console.log('Ticket number not found.');
+		}
 	});
 });
 
