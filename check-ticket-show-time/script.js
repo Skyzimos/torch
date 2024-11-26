@@ -1,3 +1,16 @@
+const socket = new WebSocket('https://plaid-smooth-neon.glitch.me');
+
+socket.addEventListener('open', () => {
+	console.log('Connected to WebSocket server');
+	socket.send(JSON.stringify({ type: 'register', role: 'ticket_host' }))
+
+	socket.addEventListener('message', (event) => {
+		const data = JSON.parse(event.data);
+		sessionStorage.setItem('ticketNUMBERHOST', data.payload)
+	});
+});
+
+/*
 let Input1 = document.getElementById('otp-input1');
 let Input2 = document.getElementById('otp-input2');
 
@@ -6,6 +19,8 @@ let Form = document.getElementById('otp-Form');
 let Type = 1;
 
 Input1.select();
+
+//	<img src='https://api.dub.co/qr?url=https://skyzimos.github.io/torch/get-ticket-data/&size=150'>
 
 Input1.oninput = function() {
 	if (!Input1.value.match(/\d+/g)) return Input1.value = '';
@@ -69,3 +84,5 @@ Form.onsubmit = function(e) {
 		return;
 	}
 }
+
+*/

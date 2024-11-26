@@ -21,76 +21,78 @@
 	</h3>
 
 	<script>
+		let prefix = '/torch/';
+
 		window.onload = function() {
 			if (sessionStorage.getItem('processing')) {
 				sessionStorage.clear()
 				
 				setTimeout(() => {
-					window.location.href = '/torch/processing-transaction'
+					window.location.href = `${prefix}processing-transaction/`
 				}, 2000)
 			} else if (sessionStorage.getItem('complete')) {
 				sessionStorage.clear()
 				
 				setTimeout(() => {
-					window.location.href = '/torch/transaction-complete/'
+					window.location.href = `${prefix}transaction-complete/`
 				}, 1500)
 			} else if (sessionStorage.getItem('selection-menu')) {
 				sessionStorage.clear()
 				
 				setTimeout(() => {
-					window.location.href = '/torch/kiosk-selection/'
+					window.location.href = `${prefix}kiosk-selection/`
 				}, 1500)
 			} else if (sessionStorage.getItem('finalize')) {
 				sessionStorage.removeItem('finalize');
 
 				setTimeout(() => {
-					window.location.href = '/torch/'
+					window.location.href = `${prefix}/`
 				}, 1000);
 			} else if (sessionStorage.getItem('time')) {
 				setTimeout(() => {
-					window.location.href = '/torch/selection-menu/'
+					window.location.href = `${prefix}selection-menu/`
 				}, 1500);
 			} else if (sessionStorage.getItem('ticket_verification')) {
 				setTimeout(() => {
-					window.location.href = '/torch/seat/'
+					window.location.href = `${prefix}seat/`
 				}, 2000);
 			} else if (sessionStorage.getItem('ticket_verification_complete')) {
 				sessionStorage.removeItem('ticket_verification_complete');
 
 				setTimeout(() => {
-					window.location.href = '/torch/seat-verification/'
+					window.location.href = `${prefix}seat-verification/`
 				}, 1750);
 			} else if (sessionStorage.getItem('get_tickets')) {
 				sessionStorage.removeItem('get_tickets');
 
 				setTimeout(() => {
-					window.location.href = '/torch/time-selection/'
+					window.location.href = `${prefix}time-selection/`
 				}, 1500);
 			} else if (sessionStorage.getItem('check_ticket_show_time')) {
 				sessionStorage.removeItem('check_ticket_show_time');
 
 				setTimeout(() => {
-					window.location.href = '/torch/check-ticket-show-time/'
+					window.location.href = `${prefix}check-ticket-show-time/`
 				}, 1500);
 			} else if (sessionStorage.getItem('ticket_showtime_verification')) {
 				setTimeout(() => {
-					window.location.href = '/torch/check-ticket-show-time/ticket-time/'
+					window.location.href = `${prefix}check-ticket-show-time/ticket-time/`
 				}, 2000);
 			} else if (sessionStorage.getItem('ticket_showtime_verification_complete')) {
 				sessionStorage.removeItem('ticket_showtime_verification_complete/');
 
 				setTimeout(() => {
-					window.location.href = '/torch/menu/'
+					window.location.href = `${prefix}menu/`
 				}, 1000);
 			} else if (sessionStorage.getItem('usher_mode')) {
 				sessionStorage.removeItem('usher_mode');
 
 				setTimeout(() => {
-					window.location.href = '/torch/seat-verification/'
+					window.location.href = `${prefix}seat-verification/`
 				}, 500);
 			} else {
 				setTimeout(() => {
-					window.location.href = '/torch/menu/'
+					window.location.href = `${prefix}menu/`
 				}, 1500);
 			}
 		}

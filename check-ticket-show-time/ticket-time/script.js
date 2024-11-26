@@ -1,27 +1,32 @@
-let SeatInfo = sessionStorage.getItem('ticket_showtime_verification');
+let masterTickets = JSON.parse(localStorage.getItem('masterTickets'));
 
-let Tickets = { ... localStorage };
+function getPersonAndSeats(ticketNumber) {
+	// Iterate through the masterTickets object
+	for (let personName in masterTickets) {
+		let ticketNumbers = masterTickets[personName].ticketNumbers;
 
-for (var Index in Tickets) {
-	if (Index.includes(SeatInfo)) {
-		document.getElementById('show-time').innerHTML = 'Your show time is: ' + Index.split('.')[1];
+		// Check if the ticket number exists in the person's ticketNumbers array
+		if (ticketNumbers.includes(ticketNumber)) {
+			// Return the person's name and their seat numbers
+			return {
+				name: personName,
+				seats: masterTickets[personName].seats
+			};
+		}
 	}
+
+	return null;
 }
 
-let Countdown = document.getElementById('countdown');
+let ticketNumber = sessionStorage.getItem('ticketNUMBERHOST');
+let result = getPersonAndSeats(ticketNumber);
 
-let CountdownTime = 5;
-
-setInterval(() => {
-	Countdown.innerHTML = CountdownTime
-
-	if (CountdownTime == 0) {
-		sessionStorage.removeItem('ticket_showtime_verification');
-		sessionStorage.setItem('ticket_showtime_verification_complete', 't');
-		window.location.href = '/torch/loading/';
-
-		return;
-	}
-
-	CountdownTime -= 1
-}, 1000);
+if (result) {
+	document.getElementById('show-time').innerHTML = 'Welcome, ' + result.name;
+	result.seats.forEach(element => {
+		let seat = element.replace('Seat ', '');
+		document.querySelector(`.${seat}`).style.backgroundColor = 'rgb(83, 204, 0)';
+	});
+} else {
+	console.log('Ticket number not found.');
+}
