@@ -32,7 +32,8 @@ socket.addEventListener('open', () => {
 
 		if (result) {
 			sessionStorage.setItem('ticketNUMBERHOST', ticketNumber);
-			location.href = '/torch/check-ticket-show-time/ticket-time/'
+			localStorage.setItem('ticket_showtime_verification', 't')
+			location.href = '/torch/loading/'
 		} else {
 			console.log('Ticket number not found.');
 		}
