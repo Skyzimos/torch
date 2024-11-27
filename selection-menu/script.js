@@ -24,16 +24,18 @@ if (!masterTickets[personName]) {
 	};
 }
 
-for (var Element of Elements) {
-	for (var Item in Items) {
-		if (Item.includes('ticket_')) {
-			if (Items[Item] == Element.getAttribute('data-name') && Item.includes(sessionStorage.getItem('time').replace('.', ':').replace(/_.*$/, ''))) {
-				Element.style.backgroundColor = '#CC0000'; // Red color for occupied seats
-				Element.style.cursor = 'not-allowed';
-			}
-		}
-	}
+for (let personName in masterTickets) {
+	let seats = masterTickets[personName].seats;
 
+	seats.forEach(element => {
+		let seat = element.replace('Seat ', '');
+		let seat_element = document.querySelector(`.${seat}`)
+		seat_element.style.backgroundColor = '#CC0000'; // Red color for occupied seats
+		seat_element.style.cursor = 'not-allowed';
+    });
+}
+
+for (var Element of Elements) {
 	// Handle seat selection
 	Element.onclick = function (e) {
 		let Elem = e.target;
