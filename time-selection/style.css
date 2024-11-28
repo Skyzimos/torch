@@ -37,6 +37,10 @@ button {
 	transition: background-color 0.3s, color 0.3s;
 }
 
+#button2 {
+	display: none;
+}
+
 button:hover {
 	background-color: #956afa;
 	color: white;
