@@ -13,18 +13,15 @@
 
 	<container>
 		<button id='button1'>
-			Get Tickets
-		</button>
-
-		<button id='button2'>
-			Have a Ticket?
+			Digital Program
 			<br>
-			<span>Check Details!</span>
+			<span>(View QR Code)</span>
 		</button>
 	</container>
 
 	<h3>
-		Powered by <span style="color: #606060; font-size: 1.1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 700;">Torch</span>
+		Powered by <span
+			style="color: #606060; font-size: 1.1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 700;">Torch</span>
 	</h3>
 
 	<script>
@@ -32,7 +29,7 @@
 		let Button2 = document.getElementById('button2');
 		let Debounce = false;
 
-		Button1.onclick = function() {
+		Button1.onclick = function () {
 			if (Debounce) return;
 			Debounce = true;
 
@@ -40,7 +37,7 @@
 			window.location.href = '/torch/loading/'
 		}
 
-		Button2.onclick = function() {
+		Button2.onclick = function () {
 			if (Debounce) return;
 			Debounce = true;
 
@@ -49,7 +46,7 @@
 		}
 
 		let Keystrokes = [];
-		document.onkeydown = function(event) {
+		document.onkeydown = function (event) {
 			Keystrokes.push(event.key);
 			console.log(Keystrokes)
 
